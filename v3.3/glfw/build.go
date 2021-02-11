@@ -45,5 +45,14 @@ package glfw
 // Linker Options:
 #cgo freebsd,!wayland LDFLAGS: -lm -lGL -lX11 -lXrandr -lXxf86vm -lXi -lXcursor -lXinerama
 #cgo freebsd,wayland LDFLAGS: -lm -lGL -lwayland-client -lwayland-cursor -lwayland-egl -lxkbcommon
+
+// OpenBSD Build Tags
+// ----------------
+// GLFW Options:
+#cgo openbsd pkg-config: glfw3
+#cgo openbsd CFLAGS: -D_GLFW_X11 -I/usr/X11R6/include
+
+// Linker Options:
+#cgo openbsd LDFLAGS: -L/usr/X11R6/lib -lm -lGL -lX11 -lXrandr -lXxf86vm -lXi -lXcursor -lXinerama
 */
 import "C"
